@@ -1,29 +1,21 @@
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+Develop a Single Page App (SPA) that shows a simple dashboard that displays four tiles, each displaying weather information
 
-### What is this repository for? ###
+* Temperature (Minimum / Maximum)
+* Wind (Speed and direction)
+* Humidity
+* Pressure
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+The data will be retrieved via the following REST API. (https://openweathermap.org/api). The user should be able to request new data to be loaded and be ablle to change the 
+country. Statistics in tiles will update to reflect the new dataset. 
 
-### How do I get set up? ###
+### Requirements ###
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+* The app shall be implemented using ReactJS components and developed using TypeScript.
+* The app shall display four tiles with information about tempreture, Wind, Humidiy and Pressure.
+* The app shall have a drop down with countries. When selection is changed new dataset will be loaded (replacing the current dataset) and the dashboard display will be update to reflect the newly loaded data.
 
-### Contribution guidelines ###
+### Guidance ###
 
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+The apperance of the app and implementation approach are up to you. Timebox the effort and priortize your time on what you think are the most important aspects. 
