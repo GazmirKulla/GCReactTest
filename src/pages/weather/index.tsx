@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useDispatch, useSelector, RootStateOrAny } from "react-redux";
 import { formatTemp } from "./utils";
 import {
@@ -20,7 +20,7 @@ const Weather = () => {
     dispatch(selectCountry({ country: e.target.value }));
   };
 
-  useEffect(() => {
+  React.useEffect(() => {
     selectedCountry && dispatch(loadWeather({ country: selectedCountry }));
   }, [dispatch, selectedCountry, ipData]);
 
@@ -29,13 +29,18 @@ const Weather = () => {
     if (!selectedCountry) {
       dispatch(loadUserCountry());
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
 
   return (
     <WeatherWrapper>
       <h2>Select a Country</h2>
-      <select className="countrySelect" onChange={(e) => changeCountry(e)}>
-        <option selected disabled hidden>
+      <select
+        className="countrySelect"
+        onChange={(e) => changeCountry(e)}
+        defaultValue="defValue"
+      >
+        <option disabled hidden value="defValue">
           Select
         </option>
         {countries.length > 0 &&
