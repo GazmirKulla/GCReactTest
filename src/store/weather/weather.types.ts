@@ -3,13 +3,17 @@ export interface WeatherState {
   selectedCountry?: string;
   weather?: Weather | null;
   countries?: any;
+  ipData?: any;
 }
 
 export enum WeatherTypes {
   LOAD_WEATHER = "LOAD_WEATHER",
   LOADED_WEATHER = "LOADED_WEATHER",
   LOAD_COUNTRIES = "LOAD_COUNTRIES",
-  LOADED_COUNTRIES = "LOADED_COUNTRIES"
+  LOADED_COUNTRIES = "LOADED_COUNTRIES",
+  SELECT_COUNTRY = "SELECT_COUNTRY",
+  LOAD_USER_COUNTRY = "LOAD_USER_COUNTRY",
+  LOADED_USER_COUNTRY = "LOADED_USER_COUNTRY"
 }
 
 export interface WeatherLoadAction {
@@ -72,5 +76,3 @@ export interface Sys {
   sunrise: number;
   sunset: number;
 }
-
-export type StoreActionsType = WeatherLoadedAction;

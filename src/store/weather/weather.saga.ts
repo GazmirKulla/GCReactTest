@@ -1,5 +1,5 @@
 import { all, put, StrictEffect, takeEvery } from "redux-saga/effects";
-import { getWeather, getCountries } from "../../api/index";
+import { getWeather, getCountries, getUserCountry } from "../../api/index";
 import { WeatherTypes } from "./weather.types";
 
 function* loadWeather(props) {
@@ -28,7 +28,24 @@ function* loadCountries() {
   }
 }
 
+function* loadUserCountry() {
+  try {
+    const data = yield getUserCountry();
+    yield put({
+      type: WeatherTypes.LOADED_USER_COUNTRY,
+      payload: data
+    });
+    yield put({
+      type: WeatherTypes.SELECT_COUNTRY,
+      payload: data?.country
+    });
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export default function* storesSaga(): Generator<StrictEffect, void> {
   yield all([takeEvery(WeatherTypes.LOAD_WEATHER, loadWeather)]);
   yield all([takeEvery(WeatherTypes.LOAD_COUNTRIES, loadCountries)]);
+  yield all([takeEvery(WeatherTypes.LOAD_USER_COUNTRY, loadUserCountry)]);
 }

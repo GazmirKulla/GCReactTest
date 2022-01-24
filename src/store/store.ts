@@ -24,7 +24,7 @@ const middleware = [sagaMiddleware, routerMiddleware(history)];
 const ENVIRONMENT = "development";
 
 if (ENVIRONMENT === "development") {
-  middleware.push(logger);
+  // middleware.push(logger);
 }
 
 const enhancer = composeWithDevTools(applyMiddleware(...middleware));

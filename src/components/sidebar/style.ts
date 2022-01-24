@@ -23,14 +23,11 @@ const SideBar = styled.nav`
       margin-top: 0;
       font: 700 20px/24px Inter, Arial, sans-serif;
     }
-    > .links a {
+    > .links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       color: white;
-      text-decoration: none;
-      padding: 5px 15px;
-      &:hover {
-        border: 1px solid #fff;
-        border-radius: 50px;
-      }
     }
   }
 `;

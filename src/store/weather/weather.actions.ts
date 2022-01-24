@@ -13,4 +13,17 @@ const loadCountries = () => {
   };
 };
 
-export { loadWeather, loadCountries };
+const selectCountry = ({ country }) => {
+  return {
+    type: WeatherTypes.SELECT_COUNTRY,
+    payload: country
+  };
+};
+
+const loadUserCountry = () => {
+  return {
+    type: WeatherTypes.LOAD_USER_COUNTRY
+  };
+};
+
+export { loadWeather, loadCountries, selectCountry, loadUserCountry };

@@ -1,5 +1,5 @@
 /* eslint-disable import/no-cycle */
-import { getCountries } from "./countries";
+import { getCountries, getUserCountry } from "./outerCalls";
 import { getWeather } from "./weather";
 
-export { getCountries, getWeather };
+export { getCountries, getWeather, getUserCountry };

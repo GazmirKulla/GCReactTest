@@ -8,4 +8,15 @@ const getCountries = async (): Promise<any> => {
   return data;
 };
 
-export { getCountries };
+const getUserCountry = async (): Promise<any> => {
+  const { data } = await axiosOriginal({
+    method: "get",
+    url: "http://ip-api.com/json"
+  });
+  return data;
+};
+
+
+
+
+export { getCountries, getUserCountry };

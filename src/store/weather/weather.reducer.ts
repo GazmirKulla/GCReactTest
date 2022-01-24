@@ -1,6 +1,5 @@
 import {
   WeatherState,
-  StoreActionsType,
   WeatherTypes,
   WeatherLoadedAction
 } from "./weather.types";
@@ -9,13 +8,11 @@ const initState: WeatherState = {
   loading: false,
   selectedCountry: "",
   weather: null,
-  countries: []
+  countries: [],
+  ipData: null
 };
 
-const storeReducer = (
-  state = initState,
-  action: StoreActionsType
-): WeatherState => {
+const storeReducer = (state = initState, action: any): WeatherState => {
   switch (action.type) {
     case WeatherTypes.LOAD_WEATHER:
       return { ...state, loading: true };
@@ -33,6 +30,21 @@ const storeReducer = (
       return {
         ...state,
         countries: action.payload
+      };
+    }
+
+    case WeatherTypes.LOADED_USER_COUNTRY: {
+      return {
+        ...state,
+        ipData: action.payload
+      };
+    }
+
+    case WeatherTypes.SELECT_COUNTRY: {
+      const { payload } = action;
+      return {
+        ...state,
+        selectedCountry: payload
       };
     }
 
